@@ -97,7 +97,7 @@ def VE(Net, QueryVar, EvidenceVars):
 
     # Eliminate each variable
     for var in ordered:
-        factors = VE_cagan31(factors, var)
+        factors = VE_helper(factors, var)
     last_factor = multiply_factors(factors)
 
     for dom in QueryVar.domain():
@@ -106,7 +106,7 @@ def VE(Net, QueryVar, EvidenceVars):
     return normalize(probabilities)
 
 
-def VE_cagan31(factors, var):
+def VE_helper(factors, var):
     """
     Helper for VE that eliminates the vars
     """
